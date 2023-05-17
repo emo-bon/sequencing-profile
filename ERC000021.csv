@@ -1,0 +1,154 @@
+﻿ENA_ERC000021_term,EMO_BON_term,EMO_BON_sheet,check_units,check_format,notes,mandatory
+ENA-CHECKLIST,ERC000021,not relevant,ok,ok,,not relevant
+tax_id,tax_id,sampling,ok,"<SAMPLE_NAME>
+      <TAXON_ID>1284369</TAXON_ID>
+      <SCIENTIFIC_NAME>stomach metagenome</SCIENTIFIC_NAME>
+      <COMMON_NAME></COMMON_NAME>
+    </SAMPLE_NAME>",,yes
+scientific_name,scientific_name,sampling,ok,"<SAMPLE_NAME>
+      <TAXON_ID>1284369</TAXON_ID>
+      <SCIENTIFIC_NAME>stomach metagenome</SCIENTIFIC_NAME>
+      <COMMON_NAME></COMMON_NAME>
+    </SAMPLE_NAME>",,yes
+sample_alias,ref_code,sequencing,ok,"  <SAMPLE alias=""MT5176"" center_name="""">
+    <TITLE>human gastric microbiota, mucosal</TITLE>
+    <SAMPLE_NAME>
+      <TAXON_ID>1284369</TAXON_ID>
+      <SCIENTIFIC_NAME>stomach metagenome</SCIENTIFIC_NAME>
+      <COMMON_NAME></COMMON_NAME>
+    </SAMPLE_NAME>",ENA notes: Unique name of the sample. If not selected system will auto generate an unique alias,yes
+sample_title,source_material_id,sampling,ok,"  <SAMPLE alias=""MT5176"" center_name="""">
+    <TITLE>human gastric microbiota, mucosal</TITLE>
+    <SAMPLE_NAME>
+      <TAXON_ID>1284369</TAXON_ID>
+      <SCIENTIFIC_NAME>stomach metagenome</SCIENTIFIC_NAME>
+      <COMMON_NAME></COMMON_NAME>
+    </SAMPLE_NAME>",ongoing,yes
+sample_description,samp_description,sampling,ok,"  <SAMPLE alias=""MT5176"" center_name="""">
+    <TITLE>human gastric microbiota, mucosal</TITLE>
+    <SAMPLE_NAME>
+      <TAXON_ID>1284369</TAXON_ID>
+      <SCIENTIFIC_NAME>stomach metagenome</SCIENTIFIC_NAME>
+      <COMMON_NAME></COMMON_NAME>
+    </SAMPLE_NAME>","Can we create this text by calling some EMO BON terms? ""EMO BON marine plankton metagenome sample from station {obs_id; observatory}, sampled {collection_date,sampling}, size fraction {size_frac; sampling} um.""",yes
+project name,project_name,observatory,ok,ok,,yes
+experimental factor,not relevant,not relevant,not relevant,not relevant,not relevant,no
+ploidy,not relevant,not relevant,not relevant,not relevant,not relevant,no
+number of replicons,not relevant,not relevant,not relevant,not relevant,not relevant,no
+extrachromosomal elements,not relevant,not relevant,not relevant,not relevant,not relevant,no
+estimated size,not relevant,not relevant,not relevant,not relevant,not relevant,no
+reference for biomaterial,not relevant,not relevant,not relevant,not relevant,not relevant,no
+annotation source,not relevant,not relevant,not relevant,not relevant,not relevant,no
+sample volume or weight for DNA extraction,samp_vol_we_dna_ext,sequencing,ok,<REGEX_VALUE>(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+nucleic acid extraction,nucl_acid_ext,sequencing,ok,ok,,no
+nucleic acid amplification,nucl_acid_amp,sequencing,ok,ok,,no
+library size,not relevant,not relevant,not relevant,not relevant,not relevant,no
+library reads sequenced,lib_reads_seqd,sequencing,ok,<REGEX_VALUE>[+-]?[0-9]+</REGEX_VALUE>,,no
+library construction method,not relevant,not relevant,not relevant,not relevant,not relevant,no
+library vector,not relevant,not relevant,not relevant,not relevant,not relevant,no
+library screening strategy,not relevant,not relevant,not relevant,not relevant,not relevant,no
+target gene,target_gene,sequencing,ok,ok,,no
+target subfragment,target_subfragment,sequencing,ok,ok,,no
+pcr primers,pcr_primers,sequencing,ok,ok,,no
+multiplex identifiers,mid,sequencing,ok,ok,,no
+adapters,adapters,sequencing,ok,ok,,no
+pcr conditions,pcr_cond,sequencing,ok,ok,,no
+sequencing method,seq_meth,sequencing,ok,ok,,no
+sequence quality check,seq_quality_check,sequencing,ok,ok,,no
+chimera check software,not relevant,not relevant,not relevant,not relevant,post-sequencing,no
+relevant electronic resources,url_seq,sequencing,ok,ok,,no
+relevant standard operating procedures,sop_seq,sequencing,ok,ok,,no
+negative control type,not relevant,not relevant,not relevant,not relevant,not relevant,no
+positive control type,not relevant,not relevant,not relevant,not relevant,not relevant,no
+collection date,collection_date,sampling,ok,"<REGEX_VALUE>(^[12][0-9]{3}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01])(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?(/[0-9]{4}(-[0-9]{2}(-[0-9]{2}(T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z?([+-][0-9]{1,2})?)?)?)?)?$)|(^not collected$)|(^not provided$)|(^restricted access$)</REGEX_VALUE>",,yes
+altitude,not relevant,not relevant,not relevant,not relevant,not relevant,not relevant
+geographic location (country and/or sea),geo_loc_name,observatory,ok,ok,,yes
+geographic location (latitude),latitude,observatory,ok,"<REGEX_VALUE>(^[+-]?[0-9]+.?[0-9]{0,8}$)|(^not collected$)|(^not provided$)|(^restricted access$)</REGEX_VALUE>",,yes
+geographic location (longitude),longitude,observatory,ok,"<REGEX_VALUE>(^[+-]?[0-9]+.?[0-9]{0,8}$)|(^not collected$)|(^not provided$)|(^restricted access$)</REGEX_VALUE>",,yes
+geographic location (region and locality),loc_broad_ocean;loc_regional; loc_loc,observatory,ok,can we concatenate 3 or our terms into one? ENA says it can take text and mixs says terms can be separated by ; e.g. {term};{term};{text},,no
+depth,depth,sampling,ok,<REGEX_VALUE>(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,yes
+broad-scale environmental context,env_broad_biome,observatory,ok,ok,,yes
+local environmental context,env_local,observatory,ok,ok,,yes
+environmental medium,env_material,sampling,ok,ok,,yes
+elevation,0,,ok,ok,,yes
+source material identifiers,source_material_id,sampling,ok,ok,ongoing,no
+sample material processing,samp_mat_process,sampling,ok,ok,,no
+isolation and growth condition,not relevant,not relevant,not relevant,not relevant,not relevant,no
+propagation,not relevant,not relevant,not relevant,not relevant,not relevant,no
+amount or size of sample collected,samp_size,sampling,ok,<REGEX_VALUE>(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+biomass,biomass,measured,ok,ok,,no
+density,density,measured,ok,<REGEX_VALUE>(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+oxygenation status of sample,oxy_stat_samp,measured,ok,<REGEX_VALUE>(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,not relevant,no
+organism count,organism_count,measured,ok,ok,,no
+sample storage duration,not relevant,not relevant,not relevant,not relevant,not relevant,no
+sample storage temperature,samp_store_temp,sampling,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+sample storage location,samp_store_loc,sampling,ok,ok,,no
+sample collection device,samp_collect_device,sampling,ok,ok,,no
+sample collection method,samp_mat_process,sampling,ok,ok,,no
+host disease status,not relevant,not relevant,not relevant,not relevant,not relevant,no
+host scientific name,not relevant,not relevant,not relevant,not relevant,not relevant,no
+alkyl diethers,not relevant,not relevant,not relevant,not relevant,not relevant,no
+aminopeptidase activity,not relevant,not relevant,not relevant,not relevant,not relevant,no
+ammonium,ammonium,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+bacterial carbon production,bacteria_carb_prod,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+bishomohopanol,not relevant,not relevant,not relevant,not relevant,not relevant,no
+bromide,not relevant,not relevant,not relevant,not relevant,not relevant,no
+calcium,not relevant,not relevant,not relevant,not relevant,not relevant,no
+carbon/nitrogen ratio,not relevant,not relevant,not relevant,not relevant,not relevant,no
+chloride,not relevant,not relevant,not relevant,not relevant,not relevant,no
+chlorophyll,chlorophyll,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+diether lipids,not relevant,not relevant,not relevant,not relevant,not relevant,no
+dissolved carbon dioxide,diss_carb_dioxide,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+dissolved hydrogen,diss_hydrogen,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+dissolved inorganic carbon,diss_inorg_carb,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+dissolved organic carbon,diss_org_carb,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+dissolved organic nitrogen,diss_org_nitro,measured,problem,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+methane,methane,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+dissolved oxygen,diss_oxygen,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+glucosidase activity,not relevant,not relevant,not relevant,not relevant,not relevant,no
+magnesium,not relevant,not relevant,not relevant,not relevant,not relevant,no
+n-alkanes,n_alkanes,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+nitrate,nitrate,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+nitrite,nitrite,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+nitrogen,not relevant,not relevant,not relevant,not relevant,not relevant,no
+organic carbon,org_carb,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+organic matter,org_matter,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+organic nitrogen,org_nitro,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+particulate organic carbon,part_org_carb,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+petroleum hydrocarbon,petroleum_hydrocarb,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+phaeopigments,phaeopigments,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+phosphate,phosphate,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+phospholipid fatty acid,not relevant,not relevant,not relevant,not relevant,not relevant,no
+potassium,not relevant,not relevant,not relevant,not relevant,not relevant,no
+redox potential,redox_potential,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+salinity,sea_surf_salinity,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+total carbon,tot_carb,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+silicate,silicate,silicate,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,no
+sodium,sodium,not relevant,not relevant,not relevant,not relevant,no
+total organic carbon,not relevant,not relevant,not relevant,not relevant,not relevant,no
+water content,water_content,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+sulfate,sulfate,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+sulfide,sulfide,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+total nitrogen,total nitrogen,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+subspecific genetic lineage,not relevant,not relevant,not relevant,not relevant,not relevant,no
+trophic level,not relevant,not relevant,not relevant,not relevant,not relevant,no
+relationship to oxygen,not relevant,not relevant,not relevant,not relevant,not relevant,no
+known pathogenicity,not relevant,not relevant,not relevant,not relevant,not relevant,no
+encoded traits,not relevant,not relevant,not relevant,not relevant,not relevant,no
+observed biotic relationship,not relevant,not relevant,not relevant,not relevant,not relevant,no
+chemical administration,chem_administration,measured,ok,ok,,no
+perturbation,perturbation,measured,ok,ok,,no
+#costum fields,,,,,,
+porosity,porosity,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+pigments,pigments,measured,ok,ok,,no
+bacterial carbon production,bacteria_carb_prod,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+alkalinity,alkalinity,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+atmospheric data,atmospheric_data,measured,ok,ok,,no
+water current,water_current,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+pressure,pressure,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+temperature,sea_subsurf_temp,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+tidal stage,tidal_stage,measured,ok,"permited values ENA: low; high. VS EMO BON values select from the list: low_tide, ebb_tide, flood_tide, high_tide",,no
+pH,ph,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+total depth of water column,tot_depth_water_col,observatory,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+sea surface temperature,sea_surf_temp,measured,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
+dna concentration,dna_conc,sequencing,ok,<REGEX_VALUE>[+-]?(0|((0\.)|([1-9][0-9]*\.?))[0-9]*)([Ee][+-]?[0-9]+)?</REGEX_VALUE>,,no
