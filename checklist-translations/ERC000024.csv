@@ -1,10 +1,10 @@
 ﻿ENA_ERC000024_term,EMO_BON_term,EMO_BON_sheet,include
 ENA-CHECKLIST,ERC000024,not relevant,N
-tax id,tax_id,sampling,Y
-scientific name,scientific_name,sampling,Y
-sample alias,ref_code,sequencing,Y
-sample title,source_material_id,sampling,Y
-sample description,samp_description,sampling,Y
+TAXON_ID,tax_id,sampling,N
+SCIENTIFIC_NAME,scientific_name,sampling,N
+SAMPLE.alias,ref_code,sequencing,N
+TITLE,source_material_id,sampling,N
+sample_description,samp_description,sampling,Y
 project name,project_name,observatory,Y
 experimental factor,not relevant,not relevant,N
 ploidy,not relevant,not relevant,N
