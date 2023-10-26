@@ -1,127 +1,127 @@
-﻿ENA_term,EMO_BON_term,EMO_BON_sheet,include
-ENA-CHECKLIST,ERC000021,not relevant,X
-TAXON_ID,tax_id,sampling,X
-SCIENTIFIC_NAME,scientific_name,sampling,X
-SAMPLE.alias,ref_code,sequencing,X
-TITLE,source_material_id,sampling,X
-DESCRIPTION,samp_description,sampling,X
-project name,project_name,observatory,Y
-experimental factor,not relevant,not relevant,N
-ploidy,not relevant,not relevant,N
-number of replicons,not relevant,not relevant,N
-extrachromosomal elements,not relevant,not relevant,N
-estimated size,not relevant,not relevant,N
-reference for biomaterial,not relevant,not relevant,N
-annotation source,not relevant,not relevant,N
-sample volume or weight for DNA extraction,samp_vol_we_dna_ext,sequencing,Y
-nucleic acid extraction,nucl_acid_ext,sequencing,Y
-nucleic acid amplification,nucl_acid_amp,sequencing,Y
-library size,not relevant,not relevant,N
-library reads sequenced,lib_reads_seqd,sequencing,Y
-library construction method,not relevant,not relevant,N
-library vector,not relevant,not relevant,N
-library screening strategy,not relevant,not relevant,N
-target gene,target_gene,sequencing,Y
-target subfragment,target_subfragment,sequencing,Y
-pcr primers,pcr_primers,sequencing,Y
-multiplex identifiers,mid,sequencing,Y
-adapters,adapters,sequencing,Y
-pcr conditions,pcr_cond,sequencing,Y
-sequencing method,seq_meth,sequencing,Y
-sequence quality check,seq_quality_check,sequencing,Y
-chimera check software,not relevant,not relevant,N
-relevant electronic resources,url_seq,sequencing,Y
-relevant standard operating procedures,sop_seq,sequencing,Y
-negative control type,not relevant,not relevant,N
-positive control type,not relevant,not relevant,N
-collection date,collection_date,sampling,Y
-altitude,not relevant,not relevant,N
-geographic location (country and/or sea),geo_loc_name,observatory,Y
-geographic location (latitude),latitude,observatory,Y
-geographic location (longitude),longitude,observatory,Y
-geographic location (region and locality),loc_broad_ocean;loc_regional; loc_loc,observatory,Y
-depth,depth,sampling,Y
-broad-scale environmental context,env_broad_biome,observatory,Y
-local environmental context,env_local,observatory,Y
-environmental medium,env_material,sampling,Y
-elevation,0,,X
-source material identifiers,source_material_id,sampling,Y
-sample material processing,samp_mat_process,sampling,Y
-isolation and growth condition,not relevant,not relevant,N
-propagation,not relevant,not relevant,N
-amount or size of sample collected,samp_size,sampling,Y
-biomass,biomass,measured,Y
-density,density,measured,Y
-oxygenation status of sample,oxy_stat_samp,measured,Y
-organism count,organism_count,measured,Y
-sample storage duration,not relevant,not relevant,N
-sample storage temperature,samp_store_temp,sampling,Y
-sample storage location,samp_store_loc,sampling,Y
-sample collection device,samp_collect_device,sampling,Y
-sample collection method,samp_mat_process,sampling,Y
-host disease status,not relevant,not relevant,N
-host scientific name,not relevant,not relevant,N
-alkyl diethers,not relevant,not relevant,N
-aminopeptidase activity,not relevant,not relevant,N
-ammonium,ammonium,measured,Y
-bacterial carbon production,bacteria_carb_prod,measured,Y
-bishomohopanol,not relevant,not relevant,N
-bromide,not relevant,not relevant,N
-calcium,not relevant,not relevant,N
-carbon/nitrogen ratio,not relevant,not relevant,N
-chloride,not relevant,not relevant,N
-chlorophyll,chlorophyll,measured,Y
-diether lipids,not relevant,not relevant,N
-dissolved carbon dioxide,diss_carb_dioxide,measured,Y
-dissolved hydrogen,diss_hydrogen,measured,Y
-dissolved inorganic carbon,diss_inorg_carb,measured,Y
-dissolved organic carbon,diss_org_carb,measured,Y
-dissolved organic nitrogen,diss_org_nitro,measured,Y
-methane,methane,measured,Y
-dissolved oxygen,diss_oxygen,measured,Y
-glucosidase activity,not relevant,not relevant,N
-magnesium,not relevant,not relevant,N
-n-alkanes,n_alkanes,measured,Y
-nitrate,nitrate,measured,Y
-nitrite,nitrite,measured,Y
-nitrogen,not relevant,not relevant,N
-organic carbon,org_carb,measured,Y
-organic matter,org_matter,measured,Y
-organic nitrogen,org_nitro,measured,Y
-particulate organic carbon,part_org_carb,measured,Y
-petroleum hydrocarbon,petroleum_hydrocarb,measured,Y
-phaeopigments,phaeopigments,measured,Y
-phosphate,phosphate,measured,Y
-phospholipid fatty acid,not relevant,not relevant,N
-potassium,not relevant,not relevant,N
-redox potential,redox_potential,measured,Y
-salinity,sea_surf_salinity,measured,Y
-total carbon,tot_carb,measured,Y
-silicate,silicate,measured,Y
-sodium,sodium,not relevant,N
-total organic carbon,not relevant,not relevant,N
-water content,water_content,measured,Y
-sulfate,sulfate,measured,Y
-sulfide,sulfide,measured,Y
-total nitrogen,total nitrogen,measured,Y
-subspecific genetic lineage,not relevant,not relevant,N
-trophic level,not relevant,not relevant,N
-relationship to oxygen,not relevant,not relevant,N
-known pathogenicity,not relevant,not relevant,N
-encoded traits,not relevant,not relevant,N
-observed biotic relationship,not relevant,not relevant,N
-chemical administration,chem_administration,measured,Y
-perturbation,perturbation,measured,Y
-porosity,porosity,measured,Y
-pigments,pigments,measured,Y
-bacterial carbon production,bacteria_carb_prod,measured,Y
-alkalinity,alkalinity,measured,Y
-atmospheric data,atmospheric_data,measured,Y
-water current,water_current,measured,Y
-pressure,pressure,measured,Y
-temperature,sea_subsurf_temp,measured,Y
-tidal stage,tidal_stage,measured,Y
-pH,ph,measured,Y
-total depth of water column,tot_depth_water_col,observatory,Y
-sea surface temperature,sea_surf_temp,measured,Y
-dna concentration,dna_conc,sequencing,Y
+﻿ENA_term,EMO_BON_term,EMO_BON_sheet,include,units
+ENA-CHECKLIST,ERC000021,not relevant,X,
+TAXON_ID,tax_id,sampling,X,
+SCIENTIFIC_NAME,scientific_name,sampling,X,
+SAMPLE.alias,ref_code,sequencing,X,
+TITLE,source_material_id,sampling,X,
+DESCRIPTION,samp_description,sampling,X,
+project name,project_name,observatory,Y,
+experimental factor,not relevant,not relevant,N,
+ploidy,not relevant,not relevant,N,
+number of replicons,not relevant,not relevant,N,
+extrachromosomal elements,not relevant,not relevant,N,
+estimated size,not relevant,not relevant,N,
+reference for biomaterial,not relevant,not relevant,N,
+annotation source,not relevant,not relevant,N,
+sample volume or weight for DNA extraction,samp_vol_we_dna_ext,sequencing,N,
+nucleic acid extraction,nucl_acid_ext,sequencing,Y,
+nucleic acid amplification,nucl_acid_amp,sequencing,Y,
+library size,not relevant,not relevant,N,
+library reads sequenced,lib_reads_seqd,sequencing,Y,
+library construction method,not relevant,not relevant,N,
+library vector,not relevant,not relevant,N,
+library screening strategy,not relevant,not relevant,N,
+target gene,target_gene,sequencing,Y,
+target subfragment,target_subfragment,sequencing,Y,
+pcr primers,pcr_primers,sequencing,Y,
+multiplex identifiers,mid,sequencing,Y,
+adapters,adapters,sequencing,Y,
+pcr conditions,pcr_cond,sequencing,Y,
+sequencing method,seq_meth,sequencing,Y,
+sequence quality check,seq_quality_check,sequencing,Y,
+chimera check software,not relevant,not relevant,N,
+relevant electronic resources,url_seq,sequencing,Y,
+relevant standard operating procedures,sop_seq,sequencing,Y,
+negative control type,not relevant,not relevant,N,
+positive control type,not relevant,not relevant,N,
+collection date,collection_date,sampling,Y,
+altitude,not relevant,not relevant,N,
+geographic location (country and/or sea),geo_loc_name,observatory,Y,
+geographic location (latitude),latitude,observatory,Y,DD
+geographic location (longitude),longitude,observatory,Y,DD
+geographic location (region and locality),loc_broad_ocean;loc_regional; loc_loc,observatory,Y,
+depth,depth,sampling,Y,m
+broad-scale environmental context,env_broad_biome,observatory,Y,
+local environmental context,env_local,observatory,Y,
+environmental medium,env_material,sampling,Y,
+elevation,0,,X,m
+source material identifiers,source_material_id,sampling,Y,
+sample material processing,samp_mat_process,sampling,Y,
+isolation and growth condition,not relevant,not relevant,N,
+propagation,not relevant,not relevant,N,
+amount or size of sample collected,samp_size_mass,sampling,Y,g
+biomass,biomass,measured,Y,g
+density,density,measured,Y,g/m3
+oxygenation status of sample,oxy_stat_samp,measured,Y,
+organism count,organism_count,measured,Y,
+sample storage duration,not relevant,not relevant,N,
+sample storage temperature,samp_store_temp,sampling,Y,°C
+sample storage location,samp_store_loc,sampling,Y,
+sample collection device,samp_collect_device,sampling,Y,
+sample collection method,samp_mat_process,sampling,Y,
+host disease status,not relevant,not relevant,N,
+host scientific name,not relevant,not relevant,N,
+alkyl diethers,not relevant,not relevant,N,
+aminopeptidase activity,not relevant,not relevant,N,
+ammonium,ammonium,measured,Y,µmol/L
+bacterial carbon production,bacteria_carb_prod,measured,N,
+bishomohopanol,not relevant,not relevant,N,
+bromide,not relevant,not relevant,N,
+calcium,not relevant,not relevant,N,
+carbon/nitrogen ratio,not relevant,not relevant,N,
+chloride,not relevant,not relevant,N,
+chlorophyll,chlorophyll,measured,Y,µg/L
+diether lipids,not relevant,not relevant,N,
+dissolved carbon dioxide,diss_carb_dioxide,measured,Y,µmol/L
+dissolved hydrogen,diss_hydrogen,measured,N,
+dissolved inorganic carbon,diss_inorg_carb,measured,Y,µg/L
+dissolved organic carbon,diss_org_carb,measured,Y,µmol/L
+dissolved organic nitrogen,diss_org_nitro,measured,Y,µg/L
+methane,methane,measured,Y,µM/L
+dissolved oxygen,diss_oxygen,measured,Y,µmol/kg
+glucosidase activity,not relevant,not relevant,N,
+magnesium,not relevant,not relevant,N,
+n-alkanes,n_alkanes,measured,Y,µmol/L
+nitrate,nitrate,measured,Y,µmol/L
+nitrite,nitrite,measured,Y,µmol/L
+nitrogen,not relevant,not relevant,N,
+organic carbon,org_carb,measured,N,
+organic matter,org_matter,measured,N,
+organic nitrogen,org_nitro,measured,N,
+particulate organic carbon,part_org_carb,measured,Y,µg/L
+petroleum hydrocarbon,petroleum_hydrocarb,measured,Y,µmol/L
+phaeopigments,phaeopigments,measured,Y,µg/L
+phosphate,phosphate,measured,Y,µmol/L
+phospholipid fatty acid,not relevant,not relevant,N,
+potassium,not relevant,not relevant,N,
+redox potential,redox_potential,measured,Y,mV
+salinity,sea_surf_salinity,measured,Y,psu
+total carbon,tot_carb,measured,N,
+silicate,silicate,measured,Y,µmol/L
+sodium,sodium,not relevant,N,
+total organic carbon,not relevant,not relevant,N,
+water content,water_content,measured,N,
+sulfate,sulfate,measured,Y,µmol/L
+sulfide,sulfide,measured,Y,µmol/L
+total nitrogen,total nitrogen,measured,N,
+subspecific genetic lineage,not relevant,not relevant,N,
+trophic level,not relevant,not relevant,N,
+relationship to oxygen,not relevant,not relevant,N,
+known pathogenicity,not relevant,not relevant,N,
+encoded traits,not relevant,not relevant,N,
+observed biotic relationship,not relevant,not relevant,N,
+chemical administration,chem_administration,measured,Y,
+perturbation,perturbation,measured,Y,
+porosity,porosity,measured,Y,%
+pigments,pigments,measured,Y,μg/L
+bacterial carbon production,bacteria_carb_prod,measured,N,
+alkalinity,alkalinity,measured,Y,mEq/l
+atmospheric data,atmospheric_data,measured,Y,
+water current,water_current,measured,Y,m3/s
+pressure,pressure,measured,Y,atm
+temperature,sea_subsurf_temp,measured,Y,ºC
+tidal stage,tidal_stage,measured,Y,
+pH,ph,measured,Y,
+total depth of water column,tot_depth_water_col,observatory,Y,m
+sea surface temperature,sea_surf_temp,measured,Y,ºC
+dna concentration,dna_conc,sequencing,Y,ng/μL
