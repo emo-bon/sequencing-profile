@@ -134,7 +134,7 @@ known pathogenicity,not relevant,not relevant,N,
 encoded traits,not relevant,not relevant,N,
 observed biotic relationship,not relevant,not relevant,N,
 chemical administration,chem_administration,measured,Y,
-perturbation,perturbation,measured,Y,
+perturbation,perturbation,measured,N,
 size fraction,size_frac,sampling,Y,μm
 pigments,pigments,measured,Y,μg/L
 sea surface temperature,sea_surf_temp,measured,Y,ºC
