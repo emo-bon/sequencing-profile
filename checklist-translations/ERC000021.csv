@@ -51,7 +51,7 @@ isolation and growth condition,not relevant,not relevant,N,
 propagation,not relevant,not relevant,N,
 amount or size of sample collected,samp_size_mass,sampling,Y,g
 biomass,biomass,measured,Y,g
-density,density,measured,Y,g/m3
+density,density,measured,N,g/m3
 oxygenation status of sample,oxy_stat_samp,measured,Y,
 organism count,organism_count,measured,Y,
 sample storage duration,not relevant,not relevant,N,
