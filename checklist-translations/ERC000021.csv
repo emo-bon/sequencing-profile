@@ -39,7 +39,7 @@ altitude,not relevant,not relevant,N,
 geographic location (country and/or sea),geo_loc_name,observatory,Y,
 geographic location (latitude),latitude,observatory,Y,DD
 geographic location (longitude),longitude,observatory,Y,DD
-geographic location (region and locality),loc_broad_ocean;loc_regional; loc_loc,observatory,Y,
+geographic location (region and locality),loc_broad_ocean,observatory,Y,
 depth,depth,sampling,Y,m
 broad-scale environmental context,env_broad_biome,observatory,Y,
 local environmental context,env_local,observatory,Y,
