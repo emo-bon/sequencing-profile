@@ -116,7 +116,7 @@ porosity,porosity,measured,Y,%
 pigments,pigments,measured,Y,μg/L
 bacterial carbon production,bacteria_carb_prod,measured,N,
 alkalinity,alkalinity,measured,Y,mEq/l
-atmospheric data,atmospheric_data,measured,Y,
+atmospheric data,atmospheric_data,measured,N,
 water current,water_current,measured,Y,m3/s
 pressure,pressure,measured,Y,atm
 temperature,sea_subsurf_temp,measured,Y,ºC

@@ -62,7 +62,7 @@ sample collection method,samp_mat_process,sampling,Y,
 host disease status,not relevant,not relevant,N,
 host scientific name,not relevant,not relevant,N,
 alkalinity,alkalinity,measured,Y,mEq/L
-atmospheric data,atmospheric_data,measured,Y,
+atmospheric data,atmospheric_data,measured,N,
 conductivity,conduc,measured,Y,mS/cm
 water current,water_current,measured,Y,m3/s
 fluorescence,not relevant,not relevant,N,
