@@ -130,3 +130,6 @@ sea surface temperature,sea_surf_temp,measured,Y,ºC
 dna concentration,dna_conc,sequencing,Y,ng/μL
 mock_pr,prokaryote mock community,sequencing,Y,
 mock_eu,eukaryote mock community,sequencing,Y,
+extraction_blank,extraction blank,sequencing,Y,
+pcr_blank_1,1st pcr blank,sequencing,Y,
+pcr_blank_2,2nd pcr blank,sequencing,Y,
