@@ -46,7 +46,7 @@ depth,depth,sampling,Y,m
 broad-scale environmental context,env_broad_biome,observatory,Y,
 local environmental context,env_local,observatory,Y,
 environmental medium,env_material,sampling,Y,
-elevation,0,,X,m
+elevation,elevation,sampling,Y,m
 source material identifiers,source_mat_id,sampling,Y,
 sample material processing,samp_mat_process,sampling,Y,
 isolation and growth condition,not relevant,not relevant,N,
