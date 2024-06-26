@@ -143,3 +143,5 @@ pigments,pigments,measured,Y,μg/L
 sea surface temperature,sea_surf_temp,measured,Y,ºC
 sea surface salinity,sea_surf_salinity,measured,Y,psu
 dna concentration,dna_conc,sequencing,Y,ng/μL
+mock_pr,prokaryote mock community,sequencing,Y,
+mock_eu,eukaryote mock community,sequencing,Y,

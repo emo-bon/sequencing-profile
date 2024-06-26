@@ -128,3 +128,5 @@ pH,ph,measured,Y,
 total depth of water column,tot_depth_water_col,observatory,Y,m
 sea surface temperature,sea_surf_temp,measured,Y,ºC
 dna concentration,dna_conc,sequencing,Y,ng/μL
+mock_pr,prokaryote mock community,sequencing,Y,
+mock_eu,eukaryote mock community,sequencing,Y,
