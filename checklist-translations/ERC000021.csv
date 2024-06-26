@@ -123,6 +123,7 @@ water current,water_current,measured,Y,m3/s
 pressure,pressure,measured,Y,atm
 temperature,sea_subsurf_temp,measured,N,ºC
 tidal stage,tidal_stage,sampling,Y,
+tidal stage information,tidal_stage,sampling,Y,
 pH,ph,measured,Y,
 total depth of water column,tot_depth_water_col,observatory,Y,m
 sea surface temperature,sea_surf_temp,measured,Y,ºC
