@@ -1,7 +1,7 @@
 ﻿ENA_term,EMO_BON_term,EMO_BON_sheet,include,units
 ENA-CHECKLIST,ERC000021,not relevant,X,
-tax_id,tax_id,sampling,Y,
-scientific_name,scientific_name,sampling,Y,
+TAXON_ID,tax_id,sampling,X,
+SCIENTIFIC_NAME,scientific_name,sampling,X,
 SAMPLE.alias,ref_code,sequencing,X,
 TITLE,source_material_id,sampling,X,
 DESCRIPTION,samp_description,sampling,X,
