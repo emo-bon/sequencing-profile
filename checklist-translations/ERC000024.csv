@@ -76,6 +76,7 @@ photon flux,not relevant,not relevant,N,
 pressure,pressure,measured,Y,atm
 temperature,sea_subsurf_temp,measured,Y,ºC
 tidal stage,tidal_stage,sampling,Y,
+tidal stage information,tidal_stage,sampling,Y,
 pH,ph,measured,Y,
 total depth of water column,tot_depth_water_col,observatory,Y,m
 alkyl diethers,not relevant,not relevant,N,
@@ -142,3 +143,8 @@ pigments,pigments,measured,Y,μg/L
 sea surface temperature,sea_surf_temp,measured,Y,ºC
 sea surface salinity,sea_surf_salinity,measured,Y,psu
 dna concentration,dna_conc,sequencing,Y,ng/μL
+mock_pr,prokaryote mock community,sequencing,Y,
+mock_eu,eukaryote mock community,sequencing,Y,
+extraction_blank,extraction blank,sequencing,Y,
+pcr_blank_1,1st pcr blank,sequencing,Y,
+pcr_blank_2,2nd pcr blank,sequencing,Y,
