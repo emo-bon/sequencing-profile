@@ -1,0 +1,111 @@
+{#- 
+Template: sequencing_draft.ldt.ttl.j2 
+Description: 
+Input: 
+    - sequencing-data/shipment/batch-X/run-information-batch-X.csv
+Sets:   
+    - sequencing-data/shipment/batch-X/properties-batch-X.yml as batch
+    - sequencing-data/shipment/batch-X/ena-accession-numbers-batch-X.csv as enanumbers
+-#}
+
+{%- if ctrl.isFirst %}
+{%- include './includes/prefixes.ttl' %}
+{%- endif %}
+
+@base <{{baseref}}/emobon/sequencingActivity/{{obs}}/{{env}}/{{source_mat_id}}> . {# baseref ~ http://data.emobon.embrc.eu #}
+
+<>
+    a emobon-sequence:SequencingRun, obi:SequencingRun, prov:Activity ; 
+    schema:name {{_.run | xsd("string") | safe }}  ;
+    {#associated sample#}
+    prov:used [
+        a sosa:Sample, prov:Entity ;
+        dct:identifier <{{baseref}}/emobon/sample/{{obs}}/{{env}}/{{source_mat_id}}> ;
+        dct:identifier {{ _.source_mat_id_an | xsd("string") }} ;
+        dct:identifier {{ _.ref_code_seq | xsd("string") }} ;
+        dct:identifier {{ _.ref_code | xsd("string") }} ;
+        emobon:enaSampleAccNum {{ enanumbers.ena_accession_number_sample | xsd("string") }} ;
+        emobon:enaProjAccNum {{ enanumbers.ena_accession_number_project | xsd("string") }} ;
+        emobon:enaStudyAccNum {{ enanumbers.ena_accession_number_umbrella | xsd("string") }} ;
+        emobon:enaBioSampleAccNum {{ enanumbers.biosamples_accession_number | xsd("string") }} ;
+    ] ; 
+    {#-ENA accession numbers#}
+    emobon:enaSampleAccNum {{ enanumbers.ena_accession_number_sample | xsd("string") }} ;
+    emobon:enaProjAccNum {{ enanumbers.ena_accession_number_project | xsd("string") }} ;
+    emobon:enaStudyAccNum {{ enanumbers.ena_accession_number_umbrella | xsd("string") }} ;
+    emobon:enaBioSampleAccNum {{ enanumbers.biosamples_accession_number | xsd("string") }} ;
+    emobon:enaRunAccNum {{ ?.run_accession_number }} ;
+
+    {#resulting sequence files#}
+    prov:generated {{ _.reads_name | xsd("string") }} ;
+    prov:generated {{ _.mock_pr | xsd("string") }} ;
+    prov:generated {{ _.mock_eu | xsd("string") }} ;
+    
+    {#sop#}
+    emobon-sequence:sop {{ _.sop | xsd("anyURI") }} ; 
+    {#electronicResource#}
+    prov:used {%- for url in _.electronicResource %}{{url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%- endfor %}
+    
+    {#other information#}
+    emobon-sequence:targetGene {{ _.target_gene | xsd("string") }} ; 
+    emobon-sequence:targetSubfragment {{ _.target_subfragment | xsd("string") }} ;
+    emobon-sequence:libLayout {{ _.lib_layout | xsd("string") }} ; 
+    emobon-sequence:analysisWorkflow {{ _.analysis | xsd("string") }} ; 
+    emobon-sequence:nucleidAcidExtractionSource {%for url in _.nucl_acid_ext.split(';')%}{{ url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%endfor%}
+    emobon-sequence:nucleidAcidAmplificationSource {%for url in _.nucl_acid_amp.split(';')%}{{ url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%endfor%}
+    emobon-sequence:countOfReads {{ _.lib_reads_seqd | xsd("integer")}} ;
+    emobon-sequence:seqMethod {{ _.seq_meth | xsd("string")}} ;
+    emobon-sequence:seqQuality {{ _.seq_quality_check | xsd("string")}} ;
+    emobon-sequence:adapters {{ _.adapters | xsd("string")}} ;
+    emobon-sequence:multiplexID {{ _.mid | xsd("string")}} ;
+    
+    {#Batch information#}
+    emobon-sequence:associatedBatch </emobon/sequencingActivity/{{obs}}/{{env}}/{{batchNumber}}> ; 
+
+    {#prc part#}
+    emobon-sequence:pcrPrimers {{ _.pcr_primers | xsd("string") }} ;
+    emobon-sequence:prcConditions {{ _.prc_cond | xsd("string") }} ;
+
+    {#DNA Analysis part#}
+    emobon-sequence:dcaConcentration [
+        a sosa:Observation ; 
+        sosa:userProcedure {{ _.dna_conc_method | xsd("string") }} ;
+        sosa:hasResult [
+            a sosa:Result, qudt:QuantityValue ; 
+            qudt:numericValue {{ _.dna_conc | xsd("double") }} ;
+            qudt:unit "nanograms per microliter (ng/µm)"^^xsd:string ;
+        ] ;
+    ] ; 
+    emobon-sequence:dcaQuantity [
+        a sosa:Observation ;
+        sosa:hasResult [
+            a sosa:Result, qudt:QuantityValue ; 
+            qudt:numericValue {{ _.dna_quant | xsd("double") }} ;
+            qudt:unit "nanograms (ng)"^^xsd:string ;
+        ] ;
+    ] ; 
+.
+
+</emobon/sequencingActivity/{{obs}}/{{env}}/{{batchNumber}}>
+    a emobon-sequence:Batch ;
+    emobon-sequence:batchNumber {{ batchnumber | xsd("integer") }} ;
+    dct:identifier {{ batchnumber | xsd("integer") }} ;
+    emobon-sequence:processingReady {{ batch.ready_for_processing | xsd("boolean") }} ;
+    emobon-sequence:productionDeployment {{ batch.production_deployment | xsd("boolean") }} ;
+    
+    emobon-sequence:shippingDate {{ batch.shipping_date | xsd("date") }} ;
+    emobon-sequence:arrivalDate {{ batch.arrival_date | xsd("date") }} ;
+    emobon-sequence:batchSender [
+        a schema:Organization ; 
+        schema:name {{ batch.shipper | xsd("string") }} ;
+    ] ;
+    emobon-sequence:batchReceiver [
+        a schema:Organization ; 
+        schema:name {{ batch.receiver | xsd("string") }} ;
+    ] ; 
+        
+    emobon-sequence:status {{ batch.status | xsd("string") }} ;
+    rdfs:comment {{ batch.comment | xsd("string") }} ;
+
+    emobon-sequence:associatedSample <{{baseref}}/emobon/sample/{{obs}}/{{env}}/{{source_mat_id}}> ;
+.
