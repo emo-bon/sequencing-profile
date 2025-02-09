@@ -1,40 +1,82 @@
 {#- 
-Template: sequencing_draft.ldt.ttl.j2 
+Template: sequencing.ldt.ttl.j2 
 Description: 
 Input: 
-    - sequencing-data/shipment/batch-X/run-information-batch-X.csv
+    - sequencing-data/shipment/batch-X/run-information-batch-xxx.csv
 Sets:   
-    - sequencing-data/shipment/batch-X/properties-batch-X.yml as batch
-    - sequencing-data/shipment/batch-X/ena-accession-numbers-batch-X.csv as enanumbers
+    - sequencing-data/shipment/batch-X/properties-batch-xxx.yml as batch-props
+    - sequencing-data/shipment/batch-X/ena-accession-numbers-batch-xxx.csv as ena-numbers
+    - sequencing-data/shipment/batch-X/list-of-samples-batch-xxx.csv as list-numbers
+Variables:
+    - batchID (~ in folderstructure)
+    - source_mat_id
+    - replicate
 -#}
 
-{%- if ctrl.isFirst %}
 {%- include './includes/prefixes.ttl' %}
-{%- endif %}
 
-@base <{{baseref}}/emobon/sequencingActivity/{{obs}}/{{env}}/{{source_mat_id}}> . {# baseref ~ http://data.emobon.embrc.eu #}
+@base <http://data.emobon.embrc.eu/batch/{{_.batchID}}> .
 
+{#samples included in the batch#}
+<http://data.emobon.embrc.eu/sample/{{source_mat_id}}/{{replicate}}>
+    a sosa:Sample, prov:Entity ;
+
+    emobon-sequence:includedInBatch <> ;
+
+    emobon-core:enaSampleAccNum {{ ena_accession_number_sample }} ;
+    emobon-core:enaProjAccNum {{ ena_accession_number_project }} ;
+    emobon-core:enaStudyAccNum {{ ena_accession_number_umbrella }} ;
+    emobon-core:enaBioSampleAccNum {{ biosamples_accession_number }} ;
+
+    dct:identifier {{ref_code}}, {{ref_code_seq}}, {{...}} ; 
+
+    {{dna_conc}}
+    {{dna_quantity_after_extraction}}
+
+    {{reads_name}}
+
+.
+
+{#batch#}
+{%- for batch_info in sets['batch-props'] %}
 <>
-    a emobon-sequence:SequencingRun, obi:SequencingRun, prov:Activity ; 
-    schema:name {{_.run | xsd("string") | safe }}  ;
-    {#associated sample#}
-    prov:used [
-        a sosa:Sample, prov:Entity ;
-        dct:identifier <{{baseref}}/emobon/sample/{{obs}}/{{env}}/{{source_mat_id}}> ;
-        dct:identifier {{ _.source_mat_id_an | xsd("string") }} ;
-        dct:identifier {{ _.ref_code_seq | xsd("string") }} ;
-        dct:identifier {{ _.ref_code | xsd("string") }} ;
-        emobon:enaSampleAccNum {{ enanumbers.ena_accession_number_sample | xsd("string") }} ;
-        emobon:enaProjAccNum {{ enanumbers.ena_accession_number_project | xsd("string") }} ;
-        emobon:enaStudyAccNum {{ enanumbers.ena_accession_number_umbrella | xsd("string") }} ;
-        emobon:enaBioSampleAccNum {{ enanumbers.biosamples_accession_number | xsd("string") }} ;
+    a emobon-sequence:Batch , prov:Entity ; 
+    
+    emobon-sequence:batchNumber {{ batchnumber | xsd("integer") }} ;
+    dct:identifier {{ batchnumber | xsd("integer") }} ;
+
+    emobon-sequence:shippingDate {{ batch_info.shipping_date | xsd("date") }} ;
+    emobon-sequence:receivalDate {{ batch_info.arrival_date | xsd("date") }} ;
+    emobon-sequence:batchSender [
+        a schema:Organization ; 
+        schema:name {{ batch_info.shipper | xsd("string") }} ;
+    ] ;
+    emobon-sequence:batchReceiver [
+        a schema:Organization ; 
+        schema:name {{ batch_info.receiver | xsd("string") }} ;
     ] ; 
-    {#-ENA accession numbers#}
-    emobon:enaSampleAccNum {{ enanumbers.ena_accession_number_sample | xsd("string") }} ;
-    emobon:enaProjAccNum {{ enanumbers.ena_accession_number_project | xsd("string") }} ;
-    emobon:enaStudyAccNum {{ enanumbers.ena_accession_number_umbrella | xsd("string") }} ;
-    emobon:enaBioSampleAccNum {{ enanumbers.biosamples_accession_number | xsd("string") }} ;
-    emobon:enaRunAccNum {{ ?.run_accession_number }} ;
+
+    rdfs:comment {{ batch_info.comment | xsd("string") }} ;
+
+    {#to determine how to model after receiving input on semantics/use#}
+    emobon-sequence:status {{ batch_info.status | xsd("string") }} ;
+    emobon-sequence:processingReady {{ batch_info.ready_for_processing | xsd("boolean") }} ;
+    emobon-sequence:productionDeployment {{ batch_info.production_deployment | xsd("boolean") }} ;
+
+    emobon-sequence:includedSample <http://data.emobon.embrc.eu/sample/{{_.source_mat_id}}/{{_.replicate}}> ;
+.
+{%- endfor %}
+
+
+{#sequenceRun activity in which the batch was used#}
+<#SequenceAnalysis>
+    a emobon-sequence:SequencingRun, prov:Activity ; 
+    
+    {#used Batch (~ with associated sample) #}                  {# to decide which property is best #}
+    prov:used <> ; 
+    emobon-sequence:usedBatch <> ; 
+    {#also used Samples (~ with batch being a collection of samples) #}
+    {# usefull / needed to list here? #}
 
     {#resulting sequence files#}
     prov:generated {{ _.reads_name | xsd("string") }} ;
@@ -58,9 +100,6 @@ Sets:
     emobon-sequence:seqQuality {{ _.seq_quality_check | xsd("string")}} ;
     emobon-sequence:adapters {{ _.adapters | xsd("string")}} ;
     emobon-sequence:multiplexID {{ _.mid | xsd("string")}} ;
-    
-    {#Batch information#}
-    emobon-sequence:associatedBatch </emobon/sequencingActivity/{{obs}}/{{env}}/{{batchNumber}}> ; 
 
     {#prc part#}
     emobon-sequence:pcrPrimers {{ _.pcr_primers | xsd("string") }} ;
@@ -84,28 +123,4 @@ Sets:
             qudt:unit "nanograms (ng)"^^xsd:string ;
         ] ;
     ] ; 
-.
-
-</emobon/sequencingActivity/{{obs}}/{{env}}/{{batchNumber}}>
-    a emobon-sequence:Batch ;
-    emobon-sequence:batchNumber {{ batchnumber | xsd("integer") }} ;
-    dct:identifier {{ batchnumber | xsd("integer") }} ;
-    emobon-sequence:processingReady {{ batch.ready_for_processing | xsd("boolean") }} ;
-    emobon-sequence:productionDeployment {{ batch.production_deployment | xsd("boolean") }} ;
-    
-    emobon-sequence:shippingDate {{ batch.shipping_date | xsd("date") }} ;
-    emobon-sequence:arrivalDate {{ batch.arrival_date | xsd("date") }} ;
-    emobon-sequence:batchSender [
-        a schema:Organization ; 
-        schema:name {{ batch.shipper | xsd("string") }} ;
-    ] ;
-    emobon-sequence:batchReceiver [
-        a schema:Organization ; 
-        schema:name {{ batch.receiver | xsd("string") }} ;
-    ] ; 
-        
-    emobon-sequence:status {{ batch.status | xsd("string") }} ;
-    rdfs:comment {{ batch.comment | xsd("string") }} ;
-
-    emobon-sequence:associatedSample <{{baseref}}/emobon/sample/{{obs}}/{{env}}/{{source_mat_id}}> ;
 .
