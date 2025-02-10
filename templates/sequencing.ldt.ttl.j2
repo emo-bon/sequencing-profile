@@ -10,15 +10,16 @@ Sets:
 Variables:
     - batchID (~ in folderstructure)
     - source_mat_id
-    - replicate
+    - obs_id
+    - env_package
 -#}
 
 {%- include './includes/prefixes.ttl' %}
 
-@base <http://data.emobon.embrc.eu/batch/{{_.batchID}}> .
+@base <http://data.emobon.embrc.eu/shipment/batch/{{_.batchID}}> .
 
 {#samples included in the batch#}
-<http://data.emobon.embrc.eu/sample/{{source_mat_id}}/{{replicate}}>
+<http://data.emobon.embrc.eu/observatory-{{obs_id}}-crate/{{env_package}}/sampling/{{_.source_mat_id}}>
     a sosa:Sample, prov:Entity ;
 
     emobon-sequence:includedInBatch <> ;
