@@ -22,12 +22,12 @@ Variables:
 <http://data.emobon.embrc.eu/observatory-{{obs_id}}-crate/{{env_package}}/sampling/{{_.source_mat_id}}>
     a sosa:Sample, prov:Entity ;
 
-    emobon-sequence:includedInBatch <> ;
+    seq:includedInBatch <> ;
 
-    emobon-core:enaSampleAccNum {{ ena_accession_number_sample }} ;
-    emobon-core:enaProjAccNum {{ ena_accession_number_project }} ;
-    emobon-core:enaStudyAccNum {{ ena_accession_number_umbrella }} ;
-    emobon-core:enaBioSampleAccNum {{ biosamples_accession_number }} ;
+    core:enaSampleAccNum {{ ena_accession_number_sample }} ;
+    core:enaProjAccNum {{ ena_accession_number_project }} ;
+    core:enaStudyAccNum {{ ena_accession_number_umbrella }} ;
+    core:enaBioSampleAccNum {{ biosamples_accession_number }} ;
 
     dct:identifier {{ref_code}}, {{ref_code_seq}}, {{...}} ; 
 
@@ -41,18 +41,18 @@ Variables:
 {#batch#}
 {%- for batch_info in sets['batch-props'] %}
 <>
-    a emobon-sequence:Batch , prov:Entity ; 
+    a seq:Batch , prov:Entity ; 
     
-    emobon-sequence:batchNumber {{ batchnumber | xsd("integer") }} ;
+    seq:batchNumber {{ batchnumber | xsd("integer") }} ;
     dct:identifier {{ batchnumber | xsd("integer") }} ;
 
-    emobon-sequence:shippingDate {{ batch_info.shipping_date | xsd("date") }} ;
-    emobon-sequence:receivalDate {{ batch_info.arrival_date | xsd("date") }} ;
-    emobon-sequence:batchSender [
+    seq:shippingDate {{ batch_info.shipping_date | xsd("date") }} ;
+    seq:receivalDate {{ batch_info.arrival_date | xsd("date") }} ;
+    seq:batchSender [
         a schema:Organization ; 
         schema:name {{ batch_info.shipper | xsd("string") }} ;
     ] ;
-    emobon-sequence:batchReceiver [
+    seq:batchReceiver [
         a schema:Organization ; 
         schema:name {{ batch_info.receiver | xsd("string") }} ;
     ] ; 
@@ -60,22 +60,22 @@ Variables:
     rdfs:comment {{ batch_info.comment | xsd("string") }} ;
 
     {#to determine how to model after receiving input on semantics/use#}
-    emobon-sequence:status {{ batch_info.status | xsd("string") }} ;
-    emobon-sequence:processingReady {{ batch_info.ready_for_processing | xsd("boolean") }} ;
-    emobon-sequence:productionDeployment {{ batch_info.production_deployment | xsd("boolean") }} ;
+    seq:status {{ batch_info.status | xsd("string") }} ;
+    seq:processingReady {{ batch_info.ready_for_processing | xsd("boolean") }} ;
+    seq:productionDeployment {{ batch_info.production_deployment | xsd("boolean") }} ;
 
-    emobon-sequence:includedSample <http://data.emobon.embrc.eu/sample/{{_.source_mat_id}}/{{_.replicate}}> ;
+    seq:includedSample <http://data.emobon.embrc.eu/sample/{{_.source_mat_id}}/{{_.replicate}}> ;
 .
 {%- endfor %}
 
 
 {#sequenceRun activity in which the batch was used#}
 <#SequenceAnalysis>
-    a emobon-sequence:SequencingRun, prov:Activity ; 
+    a seq:SequencingRun, prov:Activity ; 
     
     {#used Batch (~ with associated sample) #}                  {# to decide which property is best #}
     prov:used <> ; 
-    emobon-sequence:usedBatch <> ; 
+    seq:usedBatch <> ; 
     {#also used Samples (~ with batch being a collection of samples) #}
     {# usefull / needed to list here? #}
 
@@ -85,29 +85,29 @@ Variables:
     prov:generated {{ _.mock_eu | xsd("string") }} ;
     
     {#sop#}
-    emobon-sequence:sop {{ _.sop | xsd("anyURI") }} ; 
+    seq:sop {{ _.sop | xsd("anyURI") }} ; 
     {#electronicResource#}
     prov:used {%- for url in _.electronicResource %}{{url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%- endfor %}
     
     {#other information#}
-    emobon-sequence:targetGene {{ _.target_gene | xsd("string") }} ; 
-    emobon-sequence:targetSubfragment {{ _.target_subfragment | xsd("string") }} ;
-    emobon-sequence:libLayout {{ _.lib_layout | xsd("string") }} ; 
-    emobon-sequence:analysisWorkflow {{ _.analysis | xsd("string") }} ; 
-    emobon-sequence:nucleidAcidExtractionSource {%for url in _.nucl_acid_ext.split(';')%}{{ url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%endfor%}
-    emobon-sequence:nucleidAcidAmplificationSource {%for url in _.nucl_acid_amp.split(';')%}{{ url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%endfor%}
-    emobon-sequence:countOfReads {{ _.lib_reads_seqd | xsd("integer")}} ;
-    emobon-sequence:seqMethod {{ _.seq_meth | xsd("string")}} ;
-    emobon-sequence:seqQuality {{ _.seq_quality_check | xsd("string")}} ;
-    emobon-sequence:adapters {{ _.adapters | xsd("string")}} ;
-    emobon-sequence:multiplexID {{ _.mid | xsd("string")}} ;
+    seq:targetGene {{ _.target_gene | xsd("string") }} ; 
+    seq:targetSubfragment {{ _.target_subfragment | xsd("string") }} ;
+    seq:libLayout {{ _.lib_layout | xsd("string") }} ; 
+    seq:analysisWorkflow {{ _.analysis | xsd("string") }} ; 
+    seq:nucleidAcidExtractionSource {%for url in _.nucl_acid_ext.split(';')%}{{ url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%endfor%}
+    seq:nucleidAcidAmplificationSource {%for url in _.nucl_acid_amp.split(';')%}{{ url | xsd("anyURI") }}{% if not loop.last%}, {% endif %};{%endfor%}
+    seq:countOfReads {{ _.lib_reads_seqd | xsd("integer")}} ;
+    seq:seqMethod {{ _.seq_meth | xsd("string")}} ;
+    seq:seqQuality {{ _.seq_quality_check | xsd("string")}} ;
+    seq:adapters {{ _.adapters | xsd("string")}} ;
+    seq:multiplexID {{ _.mid | xsd("string")}} ;
 
     {#prc part#}
-    emobon-sequence:pcrPrimers {{ _.pcr_primers | xsd("string") }} ;
-    emobon-sequence:prcConditions {{ _.prc_cond | xsd("string") }} ;
+    seq:pcrPrimers {{ _.pcr_primers | xsd("string") }} ;
+    seq:prcConditions {{ _.prc_cond | xsd("string") }} ;
 
     {#DNA Analysis part#}
-    emobon-sequence:dcaConcentration [
+    seq:dcaConcentration [
         a sosa:Observation ; 
         sosa:userProcedure {{ _.dna_conc_method | xsd("string") }} ;
         sosa:hasResult [
@@ -116,7 +116,7 @@ Variables:
             qudt:unit "nanograms per microliter (ng/µm)"^^xsd:string ;
         ] ;
     ] ; 
-    emobon-sequence:dcaQuantity [
+    seq:dcaQuantity [
         a sosa:Observation ;
         sosa:hasResult [
             a sosa:Result, qudt:QuantityValue ; 
