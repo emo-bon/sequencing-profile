@@ -1,4 +1,4 @@
-name: Update Tag and Trigger Crate Workflows
+name: Update Tags Based on Commit
 
 on:
   push:
@@ -21,7 +21,21 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
+      - name: Perform pre-check
+        id: precheck
+        run: |
+          # Mock check: Always true for now (replace with real logic, e.g., file exists, API call, etc.)
+          echo "Running mock pre-check..."
+          if true; then
+            echo "check_passed=true" >> $GITHUB_OUTPUT
+            echo "Pre-check passed (mock)."
+          else
+            echo "Pre-check failed."
+            exit 1  # Fail the step to skip tagging
+          fi
+
       - name: Fetch latest SemVer tag and bump based on commit message
+        if: steps.precheck.outputs.check_passed == 'true'  # Only run if pre-check passes
         id: bump
         env:
           GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
@@ -93,27 +107,19 @@ jobs:
           # Create and push the new tag using PAT for auth
           git tag $NEW_TAG
           git push https://x-access-token:${{ secrets.DISPATCH_TOKEN }}@github.com/${{ github.repository }}.git $NEW_TAG
-  trigger-crates:
-    runs-on: ubuntu-latest
-    steps:
-      - name: List and filter crate repositories
-        id: list-repos
-        run: |
-          REPOS_JSON=$(curl -s -H "Authorization: token ${{ secrets.DISPATCH_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/orgs/emo-bon/repos?per_page=100)
-          
-          CRATE_REPOS=$(echo "$REPOS_JSON" | jq -r '.[].name | select(endswith("-crate"))')
-          
-          echo "crate_repos=$CRATE_REPOS" >> $GITHUB_OUTPUT
 
-      - name: Trigger workflows in crate repos
+      - name: Update latest tag
+        if: steps.precheck.outputs.check_passed == 'true' && steps.bump.outcome == 'success'  # Only if previous steps succeed
+        env:
+          GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          NEW_TAG: ${{ steps.bump.outputs.new_tag }}
         run: |
-          for REPO in ${{ steps.list-repos.outputs.crate_repos }}; do
-            echo "Triggering workflow in $REPO"
-            curl -s -H "Authorization: token ${{ secrets.DISPATCH_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              -X POST \
-              https://api.github.com/repos/emo-bon/$REPO/actions/workflows/workflows.yml/dispatches \
-              -d '{"ref":"main"}'
-          done
+          # Delete existing latest tag locally and remotely (if exists)
+          git tag -d latest || true
+          git push https://x-access-token:${{ secrets.DISPATCH_TOKEN }}@github.com/${{ github.repository }}.git :refs/tags/latest || true
+
+          # Create new latest tag on the current commit (same as NEW_TAG)
+          git tag latest
+          git push https://x-access-token:${{ secrets.DISPATCH_TOKEN }}@github.com/${{ github.repository }}.git latest
+
+          echo "Updated 'latest' tag to point to $NEW_TAG"
