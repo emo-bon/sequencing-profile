@@ -145,6 +145,6 @@ sea surface salinity,sea_surf_salinity,measured,Y,psu
 dna concentration,dna_conc,sequencing,Y,ng/μL
 prokaryote mock community,mock_pr,sequencing,Y,
 eukaryote mock community,mock_eu,sequencing,Y,
-extraction_blank,extraction blank,sequencing,Y,
-pcr_blank_1,1st pcr blank,sequencing,Y,
-pcr_blank_2,2nd pcr blank,sequencing,Y,
+extraction blank,extraction_blank,sequencing,Y,
+1st pcr blank,pcr_blank_1,sequencing,Y,
+2nd pcr blank,pcr_blank_2,sequencing,Y,
