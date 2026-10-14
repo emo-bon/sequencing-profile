@@ -26,8 +26,11 @@ pcr primers,pcr_primers,sequencing,Y,
 pcr conditions,pcr_cond,sequencing,Y,
 sequencing method,instrument_model,sequencing,Y,
 sequence quality check,seq_quality_check,sequencing,Y
+size fraction,size_frac,sampling,Y,μm
 
 
+
+TO BE ADDED/MAPPED:
 samples_alias_orig	
 source_mat_id_orig	
 dna concentration	
@@ -43,7 +46,6 @@ crate_cover
 preservative	
 sample collection device	
 replicate	
-samp_fraction	
 size_filter	
 sample material processing	
 arms_unit_id	
