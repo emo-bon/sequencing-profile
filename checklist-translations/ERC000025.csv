@@ -1,1 +1,16 @@
+ENA_term,EMO_BON_term,EMO_BON_sheet,include,units
+ENA-CHECKLIST,ERC000024,not relevant,X,
+TAXON_ID,tax_id,sampling,X,
+SCIENTIFIC_NAME,scientific_name,sampling,X,
+SAMPLE.alias,ref_code,sequencing,X,
+TITLE,source_material_id,sampling,X,
+DESCRIPTION,samp_description,sampling,X,
+project name,project_name,observatory,Y,
+collection date,collection_date,sampling,Y,
+geographic location (latitude),latitude,observatory,Y,DD
+geographic location (longitude),longitude,observatory,Y,DD
+geographic location (country and/or sea),geo_loc_name,observatory,Y,
+broad-scale environmental context,env_broad_biome,observatory,Y,
+local environmental context,env_local,observatory,Y,
+environmental medium,env_material,sampling,Y,
 
