@@ -7,6 +7,7 @@ TITLE,source_material_id,sampling,X,
 DESCRIPTION,samp_description,sampling,X,
 project name,project_name,observatory,Y,
 collection date,collection_date,sampling,Y,
+deployment date,deployment_date,sampling,Y,
 geographic location (latitude),latitude,observatory,Y,DD
 geographic location (longitude),longitude,observatory,Y,DD
 geographic location (country and/or sea),geo_loc_name,observatory,Y,
@@ -41,8 +42,7 @@ run
 resequencing	
 resequencing_reason	
 quality_assessment	
-ampl_size
-deployment_date	
+ampl_size	
 sampling_event	
 crate_cover	
 preservative	
