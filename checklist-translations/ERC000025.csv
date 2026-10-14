@@ -13,4 +13,56 @@ geographic location (country and/or sea),geo_loc_name,observatory,Y,
 broad-scale environmental context,env_broad_biome,observatory,Y,
 local environmental context,env_local,observatory,Y,
 environmental medium,env_material,sampling,Y,
+geographic location (region and locality),loc_regional,observatory,Y,
+geographic location (ocean),loc_broad_ocean,observatory,Y,
+geographic location (locality),loc_loc,observatory,Y,
+depth,depth,sampling,Y,m
+extraction blank,extraction_blank,sequencing,Y,
+1st pcr blank,pcr_blank_1,sequencing,Y,
+2nd pcr blank,pcr_blank_2,sequencing,Y,
+target gene,target_gene,sequencing,Y,
+target subfragment,target_subfragment,sequencing,Y,
+pcr primers,pcr_primers,sequencing,Y,
+pcr conditions,pcr_cond,sequencing,Y,
+sequencing method,instrument_model,sequencing,Y,
+sequence quality check,seq_quality_check,sequencing,Y
 
+
+samples_alias_orig	
+source_mat_id_orig	
+dna concentration	
+library reads sequenced	
+run	
+resequencing	
+resequencing_reason	
+quality_assessment	
+ampl_size
+deployment_date	
+sampling_event	
+crate_cover	
+preservative	
+sample collection device	
+replicate	
+samp_fraction	
+size_filter	
+sample material processing	
+arms_unit_id	
+sequence_batch	
+source material identifiers	
+obs_id	
+samp_site	
+total depth of water column	
+ha_id	
+ENA_accession_number_project	
+ENA_accession_number_umbrella	
+relevant standard operating procedures	
+status	
+source_mat_id_an	
+nucleic acid extraction	
+library_source	
+lib_layout	
+sequence_batch_rundate	
+nucleic acid amplification	
+mock_pr	
+mock_eu	
+url_seq
