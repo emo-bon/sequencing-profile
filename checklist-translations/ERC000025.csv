@@ -30,12 +30,13 @@ sequence quality check,seq_quality_check,sequencing,Y
 size fraction,size_frac,sampling,Y,μm
 total depth of water column,tot_depth_water_col,observatory,Y,m
 ha_id,ha_id,observatory,Y,
+source material identifiers,source_mat_id,sampling,Y,
+
 
 
 
 TO BE ADDED/MAPPED (some may be redundant and may be dropped):
 samples_alias_orig	
-source_mat_id_orig	
 dna concentration	
 library reads sequenced	
 run	
